@@ -47,5 +47,24 @@
             </ul>
         </section>
     </main>
+    <script>
+  function speakAsNyxie(text) {
+    const msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    msg.voice = speechSynthesis.getVoices().find(voice => voice.name.includes("Daniel") || voice.name.includes("UK") || voice.lang === "en-GB");
+    msg.rate = 1;
+    msg.pitch = 1.1;
+    msg.volume = 1;
+    speechSynthesis.speak(msg);
+  }
+
+  // Example line (you can trigger this however you'd like)
+  window.onload = function () {
+    setTimeout(() => {
+      speakAsNyxie("Welcome back, Sovereign. The Archive awaits your command.");
+    }, 1000);
+  };
+</script>
+    
 </body>
 </html>
